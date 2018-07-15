@@ -1,0 +1,333 @@
+//Styles for sites moscow
+//--------------------------
+@color-header: #2a6215;
+.header-moscow {
+  box-shadow: 1px 1px 22px 3px #d9d9d9;
+  padding-bottom: 20px;
+  .container {
+    position: relative;
+  }
+  .row {
+    margin-top: 30px;
+    @media (max-width: 980px){
+      margin-top: 0;
+    }
+  }
+  .menu-social {
+    text-align: right;
+    margin-top: 20px;
+    @media(max-width: 768px){
+      text-align: right;
+    }
+  }
+  .language {
+    position: absolute;
+    right: 20px;
+    z-index: 15;
+    @media (max-width: 980px){
+      top: 10px;
+    }
+    .glyphicon {
+      margin-left: 25px;
+      color: #999999;
+      font-size: 13px;
+    }
+     .name-language:hover {
+       border-color: #807f7f;
+     }
+    span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-position: center;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    .russion {
+      background-image: url(../img/russian-federation.png);
+    }
+    .france {
+      background-image: url(../img/france.png);
+    }
+    .britain {
+      background-image: url(../img/great-britain.png);
+    }
+    .name-language {
+      border: 1px solid #f1f1f1;
+      padding: 5px 25px 5px 5px;
+      border-radius: 5px;
+      color: @color-header;
+    }
+    .dropdown-menu {
+      z-index: 20;
+    }
+    .dropdown-menu  a {
+      background: white;
+    }
+    .dropdown-menu>.active>a{
+      background-color: #337ab7;
+    }
+  }
+  .logo {
+    background: url(../img/logo.png) 0 50% no-repeat;
+    padding-left: 77px;
+    background-size: auto 53px;
+    display: inline-block;
+    font-size: 12px;
+    padding-top: 5px;
+    color: #2a6215;
+
+    @media(max-width: 768px){
+      margin-top: 20px;
+    }
+    @media(max-width: 420px){
+      height: 57px;
+    }
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  .main-menu {
+    padding: 0;
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+    }
+    a {
+      text-align: left;
+      color: @color-header;
+      font-size: 18px;
+      padding: 10px 8px;
+    }
+    &>li>a:hover {
+      background: none;
+      text-decoration: underline;
+    }
+    .booking{
+      background: #db1b0b;
+      color: #fffefe;
+      border: 1px solid #ffffff;
+      padding: 5px 15px;
+      text-align: center;
+    }
+    .booking:hover {
+      background: #db1b0b;
+      text-decoration: none;
+      opacity: .8;
+    }
+    @media(max-width: 768px) {
+      position: absolute;
+      left: 0;
+      top: 144px;
+      padding: 0 60px 0 30px;
+      z-index: 20;
+      background: white;
+  }
+    li {
+      @media(max-width: 768px) {
+        display: block;
+      }
+    }
+
+  }
+  .btn-menu {
+    margin-top: 20px;
+    text-align: right;
+    background: none;
+    border: 1px solid #c7c7c7;
+    padding: 2px 60px;
+    font-size: 19px;
+    border-radius: 5px;
+  }
+
+}
+.container-tours {
+position: relative;
+  h1 {
+    margin: 60px 0 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: bold;
+  }
+  .all-tours {
+    .col-xs-6 {
+      @media(max-width: 500px) {
+        width: 100%;
+      }
+    }
+  }
+  .box-tour {
+    box-shadow: 1px 1px 22px 3px #d9d9d9;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    h2 {
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    img {
+      width: 100%;
+      position: relative;
+      z-index: 5;
+    }
+    .description-tour {
+      position: relative;
+      padding: 0 25px;
+      margin-top: 30px;
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.2;
+      }
+    }
+    .more {
+      display: block;
+      background: #ff7575;
+      border: 1px solid #cd6664;
+      text-transform: uppercase;
+      padding: 5px 0;
+      font-size: 15px;
+      color: black;
+      margin: -15px auto;
+      z-index: 20;
+      position: relative;
+      text-align: center;
+      width: 100px;
+
+    }
+    .more:hover {
+      text-decoration: none;
+      background: #fc5555;
+    }
+  }
+  .btn-more-tours-here {
+    color: #194806;
+    padding: 10px 20px;
+    border: 1px solid #194806;
+    font-size: 20px;
+    margin: 50px 0 250px;
+    display: inline-block;
+  }
+  .btn-more-tours-here:hover {
+    text-decoration: none;
+    opacity: .8;
+  }
+}
+.footer-tours {
+  background:  url("../img/footer.png") 50% 0 no-repeat;
+  height: 220px;
+  position: relative;
+  .green-rect {
+    background: #1b5704 0 0;
+    width: 100%;
+    height: 81px;
+    position: absolute;
+    bottom: 0;
+  }
+}
+.box-message {
+  width: 380px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 30;
+  @media(max-width: 400px) {
+    width: 100%;
+  }
+  .heder-message {
+    background: #1b5704;
+    padding: 8px;
+    .img-foto {
+      display: inline-block;
+      background:  url("../img/foto-mariia.png") 0 28% no-repeat;
+     background-size: 70px auto;
+      height: 58px;
+      width: 77%;
+      padding-left: 80px;
+      color: white;
+      span {
+        font-size: 14px;
+        font-family: "RobotoCondensedLight";
+        @media(max-width: 400px) {
+          font-size: 12px;
+        }
+      }
+
+    }
+    .message-icon {
+      display: inline-block;
+      width: 20%;
+      vertical-align: top;
+      text-align: right;
+      .icon {
+        &-close {
+          height: 20px;
+          width: 37px;
+          margin-bottom: 10px;
+          background: url("../img/close.png") 100% 100% no-repeat;
+          border: none;
+          outline: none;
+          background-color: transparent;
+        }
+        &-write {
+          height: 24px;
+          width: 37px;
+          background: url("../img/pencil.png") 100% 100% no-repeat;
+          border: none;
+          outline: none;
+          background-color: transparent;
+        }
+        &-close:hover,
+        &-write:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+  .body-message {
+    padding: 10px 30px;
+    background: white;
+    border-left: 1px solid #ececec;
+
+    label {
+      display: block;
+      font-size: 15px;
+      font-family: "RobotoCondensedLight";
+    }
+    input, textarea {
+      width: 100%;
+      border: 1px solid #ececec;
+      display: block;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+    input[type="text"], textarea {
+      box-shadow: -4px 10px 10px -9px #d9d9d9 inset;
+    }
+    input {
+      height: 40px;
+    }
+    textarea {
+      height: 116px;
+      resize: none;
+    }
+    input[type='submit'] {
+      width: 140px;
+      text-align: center;
+      display: block;
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+      background: none;
+      margin: auto;
+      border: 1px solid #b2b2b2;
+      line-height: 1;
+
+    }
+  }
+}

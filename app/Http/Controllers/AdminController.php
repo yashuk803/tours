@@ -127,16 +127,14 @@ class AdminController extends Controller
         if ($validator->fails()) {
             return redirect('/admin/tours/edit_tours/'.$request->idTour)->withErrors($validator);
         }
-
         $tour = Tour::find($request->idTour);
-        //dd($tour->images, $request->images, $request->idTour);
         if(!$request->viewed) $request->viewed = 0;
         if($request->viewed) $request->viewed = 1;
-
         if($request->images) {
             $y = 0;
             foreach ($request->images as $image){
-                //делаем проверку на существование добавленной картинки
+                //Если пользователь редактировал и картинки
+                //делаем проверку редактировал ли пользователь ту картинку, которая уже есть
                 if(isset($request->images[$y])) {
                     if(isset($tour->images[$y])) {
                         Storage::disk('public')->delete($tour->images[$y]->url);
@@ -164,23 +162,25 @@ class AdminController extends Controller
                 $i->tours_id = $request->idTour;
                 $i->alt = $alt;
                 $i->title = $title;
-                $i->tours_id = $tour->id;
                 $i->imagePriority = $mainImage;
                 $i->save();
                 $y++;
             }
         } else {
+            //Если пользователь редактировал alt, title, mainImage
             for ($i = 0; $i < 4; $i++) {
-                if($request->idImage[$i]) {
+                if(isset($request->idImage[$i])) {
                     if($request->imagePriority == $i) {
                         $mainImage = 1;
                     }
                     else {
                         $mainImage = 0;
                     }
+                    $alt = $request->alt[$i];
+                    $title = $request->title[$i];
                     Image::where('id',$request->idImage[$i])->update([
-                        'alt' => $request->alt,
-                        'title' => $request->title,
+                        'alt' => $alt,
+                        'title' => $title,
                         'tours_id' => $request->idTour,
                         'imagePriority' => $mainImage
                     ]);
@@ -194,10 +194,10 @@ class AdminController extends Controller
             'description_tour_way' => $request->smallDesc,
             'duration' => $request->duration,
             'slug' => $request->slug,
-            'start_tour' => $request->start_tour,
+            'start_tour' => $request->start,
             'viewed' => $request->viewed,
             'language_id' => 1,
         ]);
-       /// return redirect('/admin/all_tours');
+       return redirect('/admin/all_tours');
     }
 }

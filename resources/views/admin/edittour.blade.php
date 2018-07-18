@@ -9,12 +9,14 @@
             <input type="hidden" value="{{$tour->id}}" name="idTour">
             @for($i=0; $i<4; $i++)
             <div class="add-image">
+                @if(!empty($tour->images[$i]->id))
+                <input type="hidden" value="{{$tour->images[$i]->id}}" name="idImage[]">
+                @endif
                 <div class="form-group">
                     <label for="exampleFormControlFile1"> File input</label>
                     <input type="file" class="form-control-file" name="images[]" accept="image/*" >
-                    @if(!empty($tour->images[$i]->id))
-                        <input type="hidden" value="{{$tour->images[$i]->id}}" name="idImage[]">
-                    @endif
+
+
                     <div class="preview">
                         @if(!empty($tour->images[$i]->img))
                             <img src="{{asset('storage/'.$tour->images[$i]->img)}}" height="100" width="100">
@@ -31,14 +33,18 @@
                 </div>
                 <div class="custom-control custom-checkbox">
                     @if(!empty($tour->images[$i]->img) && $tour->images[$i]->imagePriority == 1)
-                        <input type="radio" class="custom-control-input" id="mainImage1" name="imagePriority" value="1" checked>
+                        <input type="radio" class="custom-control-input" id="mainImage{{$i+1}}" name="imagePriority" value="1" checked>
+                        <label class="custom-control-label" for="mainImage{{$i+1}}">Main Image</label>
                     @else
-                        <input type="radio" class="custom-control-input" id="mainImage1" name="imagePriority" value="0">
+                        <input type="radio" class="custom-control-input" id="mainImage{{$i+1}}" name="imagePriority" value="0">
+                        <label class="custom-control-label" for="mainImage{{$i+1}}">Main Image</label>
                     @endif
-                    <label class="custom-control-label" for="mainImage1">Main Image</label>
+
                 </div>
             </div>
+                <hr/>
             @endfor
+            <hr/>
             <div class="form-group">
                 <label for="exampleInputEmail1">Name Tour</label>
                 <input type="text" class="form-control"   placeholder="Name Tour" name="nameTour" value="{{$tour->name}}">

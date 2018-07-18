@@ -23,11 +23,11 @@
                         <tr>
                             <th>ID</th>
                             <th>Изображения</th>
-                            <th>Название</th>
-                            <th>Цена</th>
-                            <th>Дата создания</th>
+                            <th><a href="#">Название<span class="glyphicon glyphicon-chevron-down"></span></a></th>
+                            <th><a href="#">Цена<span class="glyphicon glyphicon-chevron-down"></span></a></th>
+                            <th><a href="#">Дата создания<span class="glyphicon glyphicon-chevron-down"></span></a></th>
                             <th>Категория</th>
-                            <th>Статус</th>
+                            <th><a href="#">Статус<span class="glyphicon glyphicon-chevron-down"></span></a></th>
                             <th>Действие</th>
                         </tr>
                         </thead>

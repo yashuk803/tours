@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="header">
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="col-md-5">
                 <!-- Logo -->
@@ -56,7 +56,7 @@
     </div>
 </div>
 
-<div class="page-content">
+<div class="page-content admin-panel">
     <div class="row">
         <div class="col-md-2">
             <div class="sidebar content-box" style="display: block;">

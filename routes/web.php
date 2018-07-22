@@ -26,6 +26,8 @@ Route::group(['middleware'=>"role:admin"],function (){
     Route::post('/admin/add_tour',"AdminController@addTours")->name("add_tour");
     //all
     Route::get("/admin/all_tours","AdminController@allTours")->name("all_tours");
+
+    Route::get('/admin/filterToutAdmin/{some_path?}', "AdminController@filterToutAdmin")->where('some_path', '(.*)')->name('filter');
     //delete
     Route::get('/admin/tour/delete/{id}', 'AdminController@deletetour')->name('deletetour');
     //edit

@@ -25,6 +25,7 @@
                 <label class="custom-control-label" for="mainImage1">Main Image</label>
             </div>
         </div>
+        <hr/>
         <div class="add-image">
             <div class="form-group">
                 <label for="exampleFormControlFile1"> File input</label>
@@ -44,6 +45,7 @@
                 <label class="custom-control-label" for="mainImage2">Main Image</label>
             </div>
         </div>
+        <hr/>
         <div class="add-image">
             <div class="form-group">
                 <label for="exampleFormControlFile1"> File input</label>
@@ -63,6 +65,7 @@
                 <label class="custom-control-label" for="mainImage3">Main Image</label>
             </div>
         </div>
+        <hr/>
         <div class="add-image">
             <div class="form-group">
                 <label for="exampleFormControlFile1"> File input</label>
@@ -82,6 +85,7 @@
                 <label class="custom-control-label" for="mainImage4">Main Image</label>
             </div>
         </div>
+        <hr/>
         <div class="form-group">
             <label for="exampleInputEmail1">Name Tour</label>
             <input type="text" class="form-control"   placeholder="Name Tour" name="nameTour">

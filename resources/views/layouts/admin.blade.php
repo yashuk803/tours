@@ -63,10 +63,10 @@
                 <ul class="nav">
                     <!-- Main menu -->
                     <li class="current"><a href="{{ route('admin') }}"><i class="glyphicon glyphicon-home"></i>Main</a></li>
-                    <li><a href="{{ route('tours') }}"><i class="glyphicon glyphicon-calendar"></i>Add Tours</a></li>
-                    <li><a href="{{ route('all_tours') }}"><i class="glyphicon glyphicon-calendar"></i>View All Tours</a></li>
-                    <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i>Add Articles</a></li>
-                    <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i>View All Articles</a></li>
+                    <li><a href="{{ route('tours') }}"><i class="glyphicon glyphicon-plus"></i>Add Tours</a></li>
+                    <li><a href="{{ route('all_tours') }}"><i class="glyphicon glyphicon-eye-open"></i>View All Tours</a></li>
+                    <li><a href="stats.html"><i class="glyphicon glyphicon-plus"></i>Add Articles</a></li>
+                    <li><a href="stats.html"><i class="glyphicon glyphicon-eye-open"></i>View All Articles</a></li>
                 </ul>
             </div>
         </div>
@@ -74,7 +74,7 @@
     </div>
 </div>
 
-<footer>
+<footer class="add-top">
     <div class="container">
         <div class="copy text-center">Admin 2018</div>
     </div>

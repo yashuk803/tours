@@ -98,7 +98,7 @@ class AdminController extends Controller
     public function allTours(){
         $images = Image::all();
         $tours = Tour::latest('id')->get();
-        return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images]);
+        return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images, 'dir' => 'asc']);
     }
     public function deletetour($id){
         $tour = Tour::find($id);
@@ -192,8 +192,18 @@ class AdminController extends Controller
             ]);
         return redirect('/admin/all_tours');
     }
-    public function filterToutAdmin()
+    public function filterToutAdmin(Request $request)
     {
-
+        if($request->dir == 'asc')
+        {
+            $images = Image::all();
+            $tours = Tour::orderBy($request->sort, 'desc')->get();
+            return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images, 'dir' => 'desc']);
+        } else {
+            $images = Image::all();
+            $tours = Tour::orderBy($request->sort, 'asc')->get();
+            return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images, 'dir' => 'asc']);
+        }
     }
+
 }

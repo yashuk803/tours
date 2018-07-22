@@ -16,18 +16,49 @@
                     <button type="submit" class="btn btn-primary btn-sm active">Импорт туров</button>
                 </form>
                 <a href="/admin/tours/export" class="btn btn-primary btn-sm active" role="button">Экспорт туров</a>
-
                 <div class="table-responsive">
                     <table id="example" class="table table-striped " cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>
+                                <a href="{{ route('filter') }}?sort=id&dir={{$dir}}">ID
+                                    @if($dir == 'asc')
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    @else
+                                        <span class="glyphicon glyphicon-chevron-up"></span>
+                                    @endif
+                                </a>
+                            </th>
                             <th>Изображения</th>
-                            <th><a href="#">Название<span class="glyphicon glyphicon-chevron-down"></span></a></th>
-                            <th><a href="#">Цена<span class="glyphicon glyphicon-chevron-down"></span></a></th>
-                            <th><a href="#">Дата создания<span class="glyphicon glyphicon-chevron-down"></span></a></th>
+                            <th><a href="{{ route('filter') }}?sort=name&dir={{$dir}}">Название
+                                    @if($dir == 'asc')
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    @else
+                                        <span class="glyphicon glyphicon-chevron-up"></span>
+                                    @endif
+                                </a></th>
+                            <th><a href="{{ route('filter') }}?sort=price&dir={{$dir}}">Цена
+                                    @if($dir == 'asc')
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    @else
+                                        <span class="glyphicon glyphicon-chevron-up"></span>
+                                    @endif
+                                </a></th>
+                            <th><a href="{{ route('filter') }}?sort=created_at&dir={{$dir}}">Дата создания
+                                    @if($dir == 'asc')
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    @else
+                                        <span class="glyphicon glyphicon-chevron-up"></span>
+                                    @endif
+                                </a></th>
                             <th>Категория</th>
-                            <th><a href="#">Статус<span class="glyphicon glyphicon-chevron-down"></span></a></th>
+                            <th><a href="{{ route('filter') }}?sort=viewed&dir={{$dir}}">Статус
+                                    @if($dir == 'asc')
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                    @else
+                                        <span class="glyphicon glyphicon-chevron-up"></span>
+                                    @endif
+                                </a></th>
                             <th>Действие</th>
                         </tr>
                         </thead>

@@ -26,6 +26,7 @@ Route::group(['middleware'=>"role:admin"],function (){
     Route::post('/admin/add_tour',"AdminController@addTours")->name("add_tour");
     //all
     Route::get("/admin/all_tours","AdminController@allTours")->name("all_tours");
+    Route::get('/{slug?}', 'HomeController@viewOneTour')->name('oneTour');
 
     Route::get('/admin/filterToutAdmin/{some_path?}', "AdminController@filterToutAdmin")->where('some_path', '(.*)')->name('filter');
     //delete
@@ -33,5 +34,13 @@ Route::group(['middleware'=>"role:admin"],function (){
     //edit
     Route::get("/admin/tour/edit_tours/{id}","AdminController@editTours")->name("edit_tours");
     Route::post('/admin/tour/save', 'AdminController@saveEditTour')->name("save_edit_tour");
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+        Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+        // list all lfm routes here...
+    });
+
+
 
 });

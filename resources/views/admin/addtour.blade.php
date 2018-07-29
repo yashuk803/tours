@@ -102,10 +102,18 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Description</label>
-            <textarea class="form-control" rows="3" name="desc"></textarea>
+            <textarea id="editor" name="editor"  rows="10" cols="80" contenteditable="true"></textarea>
             <span class="err-inp">{{ $errors->first('desc') }}</span>
+
             <script>
-                var editor = CKEDITOR.replace( 'desc' );
+                var route_prefix = "{{ url(config('lfm.url_prefix', config('lfm.prefix'))) }}";
+                var options = {
+                    filebrowserImageBrowseUrl: route_prefix + '?type=Images',
+                    filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token={{csrf_token()}}',
+                    filebrowserBrowseUrl: route_prefix + '?type=Files',
+                    filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token={{csrf_token()}}'
+                };
+                CKEDITOR.replace( 'editor', options);
             </script>
         </div>
         <div class="form-group">
@@ -132,8 +140,6 @@
     </form>
 
     </div>
-
-
 
 
     <script src="{{ asset('js/admin.js') }}" type="text/javascript" charset="utf-8" ></script>

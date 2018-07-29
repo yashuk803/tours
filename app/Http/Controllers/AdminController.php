@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    
+
     public function admin(Request $request)
     {
         /** @var User $user */
@@ -194,16 +194,10 @@ class AdminController extends Controller
     }
     public function filterToutAdmin(Request $request)
     {
-        if($request->dir == 'asc')
-        {
-            $images = Image::all();
-            $tours = Tour::orderBy($request->sort, 'desc')->get();
-            return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images, 'dir' => 'desc']);
-        } else {
-            $images = Image::all();
-            $tours = Tour::orderBy($request->sort, 'asc')->get();
-            return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images, 'dir' => 'asc']);
-        }
+        $images = Image::all();
+        $request->dir == 'asc' ? $order = 'asc' : $order = 'desc';
+        $tours = Tour::orderBy($request->sort, $order)->get();
+        return view('admin/viewtour')->with(['tours'=>$tours, 'images'=>$images, 'dir' => $order]);
     }
 
 }

@@ -6,78 +6,27 @@
         <section class="all-tours">
             <h1>Tours</h1>
             <div class="row">
+                @if($tours)
+                    @foreach($tours as $tour)
                 <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="box-tour">
-                        <h2>tour name</h2>
-                        <img src="img/tours1.png">
-                        <a href="#" class="more">more</a>
+                        <h2>{{$tour->name}}</h2>
+                        @if($tour->images)
+                            @foreach($tour->images as $img)
+                                @if($img->imagePriority == 1)
+                                        <img src="{{asset('storage/'.$img->img)}}">
+                                @endif
+                            @endforeach
+                        @endif
+                        <a href="/{{$tour->slug}}" class="more">more</a>
                         <div class="description-tour">
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages and more recently with</p>
+                            <p>{{$tour->description_tour_way}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="box-tour">
-                        <h2>tour name</h2>
-                        <img src="img/tours1.png">
-                        <a href="#" class="more">more</a>
-                        <div class="description-tour">
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages and more recently with</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="box-tour">
-                        <h2>tour name</h2>
-                        <img src="img/tours1.png">
-                        <a href="#" class="more">more</a>
-                        <div class="description-tour">
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages and more recently with</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="box-tour">
-                        <h2>tour name</h2>
-                        <img src="img/tours1.png">
-                        <a href="#" class="more">more</a>
-                        <div class="description-tour">
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages and more recently with</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="box-tour">
-                        <h2>tour name</h2>
-                        <img src="img/tours1.png">
-                        <a href="#" class="more">more</a>
-                        <div class="description-tour">
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages and more recently with</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="box-tour">
-                        <h2>tour name</h2>
-                        <img src="img/tours1.png">
-                        <a href="#" class="more">more</a>
-                        <div class="description-tour">
-                            <p>It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages and more recently with</p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
+            </div>
         </section>
         <section>
             <div class="row">

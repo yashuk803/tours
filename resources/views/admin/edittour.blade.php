@@ -61,10 +61,19 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Description</label>
-                <textarea class="form-control" rows="3" name="desc">{!! $tour->description !!}</textarea>
+                <textarea class="form-control" rows="3" name="editor">{!! $tour->description !!}</textarea>
                 <span class="err-inp">{{ $errors->first('desc') }}</span>
                 <script>
-                    var editor = CKEDITOR.replace( 'desc' );
+                    var options = {
+                        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+                    };
+
+                </script>
+                <script>
+                    CKEDITOR.replace( 'editor', options);
                 </script>
             </div>
             <div class="form-group">

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Image;
+use App\Models\Tour;
+use Storage;
 
 class HomeController extends Controller
 {
@@ -15,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+
     }
 
     /**
@@ -23,22 +26,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        /** @var User $user */
-        $user = \Auth::user();
+        $images = Image::all();
+        $tours = Tour::all();
 
-        $users = User::all();
-       // $status = rand(-1, 3) ? 'danger' : 'success';
-     //   $request->session()->flash('message', [
-        //    'status' => $status,
-       //     'message' => 'Task was successful!'
-      //  ]);
-
-        return view('home');
+        return view('home', [
+            'tours' => $tours,
+            'images'=>$images,
+        ]);
     }
-
-
     public function categoryIndex()
     {
         $categories = Category::all();
@@ -71,7 +68,6 @@ class HomeController extends Controller
         if ($slug) {
             $category = Category::where(['slug' => $slug])->first();
         }
-
         return view('create', [
                 'category' => $category
             ]
@@ -85,11 +81,11 @@ class HomeController extends Controller
         $slug = $request->get('slug');
 
         $validator = \Validator::make($request->all(), [
-            'slug'=>'required|unique:categories,slug',
-            'name'=>'required',
+            'slug' => 'required|unique:categories,slug',
+            'name' => 'required',
         ]);
         //dd($validator->errors());
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return redirect(route('categories.create'))->withErrors($validator)->withInput();
         }
 
@@ -105,6 +101,18 @@ class HomeController extends Controller
         $category->save();
 
         return redirect(route('categories.show', ['slug' => $slug]));
+    }
+    public function viewOneTour($slug)
+    {
+        $tour = null;
+        if ($slug) {
+            $tour = Tour::where(['slug' => $slug])->first();
+        }
+
+        return view('oneTour', [
+                'tour' => $tour
+            ]
+        );
     }
 
 

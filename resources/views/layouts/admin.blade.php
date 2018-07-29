@@ -7,7 +7,12 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- styles -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('/js/ckeditor/ckeditor.js') }}"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -79,12 +84,6 @@
         <div class="copy text-center">Admin 2018</div>
     </div>
 </footer>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{ asset('js/app.js') }}"></script>
-
-<script src="js/custom.js"></script>
+<script src="{{ asset('/js/custom.js') }}"></script>
 </body>
 </html>
